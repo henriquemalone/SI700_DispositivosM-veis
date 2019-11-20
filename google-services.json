@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "829657214771",
+    "firebase_url": "https://trabalhosi700.firebaseio.com",
+    "project_id": "trabalhosi700",
+    "storage_bucket": "trabalhosi700.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:829657214771:android:a963e3b6344b3c74f15846",
+        "android_client_info": {
+          "package_name": "p169624.ft.unicamp.br.aula02"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "829657214771-jeg8r77j0ms1set84d3kk20rmpkbjjg1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBjGw2h980EM_rbe-wPyeDQWLMLvo3QPEI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "829657214771-jeg8r77j0ms1set84d3kk20rmpkbjjg1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

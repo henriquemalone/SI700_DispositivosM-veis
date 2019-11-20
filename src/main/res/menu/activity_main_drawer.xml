@@ -25,6 +25,31 @@
             android:id="@+id/nav_jogo2"
             android:icon="@drawable/ic_menu_manage"
             android:title="@string/menu_jogo2" />
+
+        <item
+            android:id="@+id/nav_jogo3"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Jogo 3" />
+
+        <item
+            android:id="@+id/nav_kotlin"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="@string/nova_activity" />
+
+        <item
+            android:id="@+id/nav_database"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="@string/menu_database" />
+
+        <item
+            android:id="@+id/nav_internet"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="@string/menu_internet" />
+
+        <item
+            android:id="@+id/nav_recycler_firebase"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="RecyclerView Firebase" />
     </group>
 
     <item android:title="Communicate">

@@ -15,7 +15,6 @@ import p169624.ft.unicamp.br.aula02.R;
 
 public class MyFirstAdapter extends RecyclerView.Adapter {
     ArrayList<Aluno> alunos;
-
     private FragmentManager fragmentManager;
 
     MyOnItemClickListener myOnItemClickListener;

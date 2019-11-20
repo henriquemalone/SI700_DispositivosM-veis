@@ -7,6 +7,7 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
     <string name="action_contato">Contato</string>
+    <string name="action_stats">Stats</string>
 
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
@@ -20,7 +21,18 @@
     <string name="menu_biografias">Biografias</string>
     <string name="menu_jogo1">Jogo 1</string>
     <string name="menu_jogo2">Jogo 2</string>
+    <string name="nova_activity">Nova Activity</string>
+    <string name="menu_database">Banco de Dados</string>
+    <string name="menu_internet">Internet</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <string-array name="alunos">
+        <item>Gislaine</item>
+        <item>Rodrigo</item>
+    </string-array>
+    <string name="title_activity_kotlin">KotlinActivity</string>
+
 </resources>

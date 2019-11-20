@@ -17,11 +17,21 @@ import javax.mail.internet.MimeMessage;
  * Created by ivan0 on 07/06/2016.
  */
 public class GmailSend extends javax.mail.Authenticator{
+    /*
+        Para este código funcionar, você precisar acessar a conta no Browser e
+        clicar em "Minha Conta". Depois, você precisa acessar "Login e segurança" e
+        ativar a opção "Permitir aplicativos menos seguros: "
+     */
+
+
+
 
     public GmailSend(final String username, final String password,
                      String email_to,
                      String email_subject,
                      String email_body){
+
+
 
         Log.i("GmailSend", email_to);
         Log.i("GmailSend",email_body);

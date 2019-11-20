@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    android:orientation="vertical"
+    tools:context=".database.Stats">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pessoa que menos sabem o nome: " />
+
+    <TextView
+        android:id="@+id/pessoaMenos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fulano" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Nome que mais faz o jogador errar: " />
+
+    <TextView
+        android:id="@+id/nomeErro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nome" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Porcentagem de erros: " />
+
+    <TextView
+        android:id="@+id/porcentagem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="porcentagem" />
+
+</LinearLayout>

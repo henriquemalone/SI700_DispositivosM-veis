@@ -1,6 +1,8 @@
 package p169624.ft.unicamp.br.aula02;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -18,11 +20,20 @@ import androidx.fragment.app.FragmentTransaction;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 import p169624.ft.unicamp.br.aula02.alunos.AlunosFragment;
+import p169624.ft.unicamp.br.aula02.database.DatabaseFragment;
+import p169624.ft.unicamp.br.aula02.database.NameFragment;
 import p169624.ft.unicamp.br.aula02.interfaces.OnBiografiaRequest;
+import p169624.ft.unicamp.br.aula02.internet.InternetFragment;
+import p169624.ft.unicamp.br.aula02.jogo3.Jogo3;
+import p169624.ft.unicamp.br.aula02.jogo3.Porcentagem;
+import p169624.ft.unicamp.br.aula02.kotlin.KotlinActivity;
 import p169624.ft.unicamp.br.aula02.puzzle.PuzzleFragment;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, OnBiografiaRequest {
     private EditText assunto;
 
     private FragmentManager fragmentManager;
@@ -36,6 +47,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private Button send;
 
     private EditText to;
+
+    private FirebaseAuth mFirebaseAuth;
+    private FirebaseUser mFirebaseUser;
 
     public void chamaBio(int paramInt) {
         BiografiasFragment biografiasFragment = (BiografiasFragment)this.fragmentManager.findFragmentByTag("biografia");
@@ -82,6 +96,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
+
+        if (mFirebaseUser == null) {
+            // Not signed in, launch the Sign In activity
+            //startActivity(new Intent(this, SignInActivity.class));
+        } else {
+            // Adicionar o c´odigo ap´os logado aqui.
+        }
     }
 
     public boolean onCreateOptionsMenu(Menu paramMenu) {
@@ -115,8 +136,36 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             PuzzleFragment puzzleFragment = new PuzzleFragment();
             this.fragmentManager.beginTransaction().replace(R.id.fragment, puzzleFragment).addToBackStack(null).commit();
         } else if (i == R.id.nav_jogo2) {
-            Toast.makeText(this, "Jogo 2 aberto", Toast.LENGTH_SHORT).show();
+            setTitle("Jogo 2");
+
+            NameFragment nameFragment = (NameFragment) fragmentManager.findFragmentByTag("name");
+            if (nameFragment == null) {
+                nameFragment = new NameFragment();
+                nameFragment.setOnBiografiaRequest(this);
+            }
+            replaceFragment(nameFragment, "name");
+
+        } else if (i == R.id.nav_kotlin) {
+            Intent intent = new Intent(this, KotlinActivity.class);
+            startActivity(intent);
+        } else if (i == R.id.nav_database) {
+            setTitle("Banco de Dados");
+            DatabaseFragment databaseFragment = new DatabaseFragment();
+            this.fragmentManager.beginTransaction().replace(R.id.fragment, databaseFragment).addToBackStack(null).commit();
+        } else if (i == R.id.nav_internet) {
+            setTitle("Internet");
+            InternetFragment internetFragment = new InternetFragment();
+            this.fragmentManager.beginTransaction().replace(R.id.fragment, internetFragment).addToBackStack(null).commit();
+        } else if (i == R.id.nav_jogo3) {
+            setTitle("Jogo 3");
+            Jogo3 jogo3 = new Jogo3();
+            this.fragmentManager.beginTransaction().replace(R.id.fragment, jogo3).addToBackStack(null).commit();
+        }else if (i == R.id.nav_recycler_firebase) {
+            setTitle("RecyclerView Firebase");
+            ListDatasetFragment listDatasetFragment = new ListDatasetFragment();
+            this.fragmentManager.beginTransaction().replace(R.id.fragment, listDatasetFragment).addToBackStack(null).commit();
         }
+
         ((DrawerLayout)findViewById(R.id.drawer_layout)).closeDrawer(GravityCompat.START);
         return true;
     }
@@ -132,6 +181,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             this.fragmentManager.beginTransaction().replace(R.id.fragment, mailFragment).addToBackStack(null).commit();
             return true;
         }
+        if (i == R.id.action_stats) {
+            setTitle("Jogo3 Status");
+            Porcentagem porcentagem = new Porcentagem();
+            this.fragmentManager.beginTransaction().replace(R.id.fragment, porcentagem).addToBackStack(null).commit();
+            return true;
+        }
         return super.onOptionsItemSelected(paramMenuItem);
     }
 
@@ -141,6 +196,51 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
     }
+
+    public void onStart(){
+        super.onStart();
+        Log.i("Java","onStart");
+        //mFirebaseAuth = FirebaseAuth.getInstance();
+        //mFirebaseUser = mFirebaseAuth.getCurrentUser();
+
+    }
+
+    public void onResume(){
+        super.onResume();
+        Log.i("Java","onResume");
+    }
+
+    public void onRestart(){
+        super.onRestart();
+        Log.i("Java","onRestart");
+    }
+
+    public void onPause(){
+        super.onPause();
+        Log.i("Java","onPause");
+    }
+
+    public void onStop(){
+        super.onStop();
+        Log.i("Java","onStop");
+    }
+
+    public void onDestroy(){
+        super.onDestroy();
+        Log.i("Java","onDestroy");
+    }
+
+    @Override
+    public void onRequest(int position) {
+        BiografiasFragment biografiasFragment = (BiografiasFragment) fragmentManager.findFragmentByTag("biografias");
+        if (biografiasFragment == null) {
+            biografiasFragment = new BiografiasFragment();
+        }
+        biografiasFragment.setPosition(position);
+        replaceFragment(biografiasFragment, "biografias");
+    }
 }
+
+
 
 

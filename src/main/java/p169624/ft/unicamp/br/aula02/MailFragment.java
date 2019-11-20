@@ -27,13 +27,13 @@ public class MailFragment extends Fragment {
 
     public View onCreateView(LayoutInflater paramLayoutInflater, ViewGroup paramViewGroup, Bundle paramBundle) {
         if (this.view == null)
-            this.view = paramLayoutInflater.inflate(2131427377, paramViewGroup, false);
-        this.send = (Button)this.view.findViewById(2131230894);
-        this.login = (EditText)this.view.findViewById(2131230833);
-        this.password = (EditText)this.view.findViewById(2131230896);
-        this.to = (EditText)this.view.findViewById(2131230941);
-        this.assunto = (EditText)this.view.findViewById(2131230752);
-        this.message = (EditText)this.view.findViewById(2131230836);
+            this.view = paramLayoutInflater.inflate(R.layout.fragment_mail, paramViewGroup, false);
+        this.send = (Button)this.view.findViewById(R.id.send);
+        this.login = (EditText)this.view.findViewById(R.id.login);
+        this.password = (EditText)this.view.findViewById(R.id.senha);
+        this.to = (EditText)this.view.findViewById(R.id.to);
+        this.assunto = (EditText)this.view.findViewById(R.id.assunto);
+        this.message = (EditText)this.view.findViewById(R.id.message);
         this.send.setOnClickListener(new View.OnClickListener() {
             public void onClick(View param1View) {
                 String str = MailFragment.this.message.getText().toString();
@@ -42,7 +42,7 @@ public class MailFragment extends Fragment {
                 FragmentTransaction fragmentTransaction = MailFragment.this.getFragmentManager().beginTransaction();
                 bundle.putString("mensagem", str);
                 autoresFragment.setArguments(bundle);
-                fragmentTransaction.replace(2131230809, autoresFragment, "autoresFragment");
+                fragmentTransaction.replace(R.id.fragment, autoresFragment, "autoresFragment");
                 fragmentTransaction.commit();
             }
         });
